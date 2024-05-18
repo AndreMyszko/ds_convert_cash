@@ -1,0 +1,33 @@
+# cache
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.log
+
+# python / virtual environament
+.Python
+env/
+.env
+.venv/
+build/
+dist/
+
+# pytest cache / unit test / coverage reports
+.pytest_cache/
+.coverage
+.cache
+*.cover
+
+# database
+*.sqlite3
+db.sqlite3
+
+# vscode
+.vscode/
+
+# installer logs
+pip-log.txt
+pip-delete-this-directory.txt
