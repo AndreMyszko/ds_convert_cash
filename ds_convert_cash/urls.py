@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
-from core.views import (CurrencyExchangeView,
+from core.views.currency_views import (CurrencyExchangeView,
                         CurrencyValuesView,)
 
 urlpatterns = [

@@ -3,15 +3,21 @@ Bem vindo à documentação do Currency Exchange. Sistema *fictício* de convers
 
 ## REQUISITOS
 - Git instalado e atualizado
-- Docker intalado e atualizado
-- Possuir Python3.12.X
-- Sistema Linux 22.04 ou 24.04
+- Docker instalado e atualizado
+- Possuir Python3.12.X instalado 
+- Preferencialmente Sistema Linux Ubuntu 22.04 ou 24.04
 
 ## INSTALAÇÃO
 
+1. Adquirir o código fonte via repositório git.
+2. Criar um *virtual environament*.
+3. Instalação de dependências do projeto.
+4. Configurar a aplicação Django.
+5. Rodar a aplicação.
 
 ## UTILIZAÇÃO 
 A utilização da API é simples e conta apenas com dois ENDPOINTS: 
+
 "*/*": retorna os valores atuais para todas as moedas - USD, BRL, EUR, BTC e ETH.  
 "*/exchange*": retorna a conversão de uma moeda para outra a partir da quantia desejada.
 
@@ -91,6 +97,9 @@ Vary: Accept
 }
 ```
 
+## UTILIZAÇÃO DE TESTES DA APLICAÇÃO
+- 
+
 ## APIs EXTERNAS UTILIZADAS
 
 Endpoint fornecido pela API de moedas comuns - USD, BRL, EUR:
@@ -104,4 +113,4 @@ https://api.coingecko.com/api/v3/simple/price
 ```
 
 ## TÉCNOLOGIAS
-pyenv, python, venv, django, restframewrok, requests, api, restful, sqlite, json.
+pyenv, python, venv, django, restframewrok, requests, api, restful, sqlite, json, docker, pytest.
