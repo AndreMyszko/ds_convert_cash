@@ -9,11 +9,15 @@ Bem vindo à documentação do Currency Exchange. Sistema *fictício* de convers
 
 ## INSTALAÇÃO
 
-1. Adquirir o código fonte via repositório git.
+### Rodando a aplicação local sem o Docker
+
+1. Adquirir o código fonte via repositório git branch *main*.
 2. Criar um *virtual environament*.
 3. Instalação de dependências do projeto.
 4. Configurar a aplicação Django.
 5. Rodar a aplicação.
+
+### Rodando a aplicação com Docker
 
 ## UTILIZAÇÃO 
 A utilização da API é simples e conta apenas com dois ENDPOINTS: 
@@ -98,7 +102,22 @@ Vary: Accept
 ```
 
 ## UTILIZAÇÃO DE TESTES DA APLICAÇÃO
-- 
+1. Compatível com *pytest*.
+2. Certifique-se de que seu ambiente está configurado para testes e que os testes estejam direcionados para o app *core*.
+```
+# exemplo de settings.json
+{
+  "python.testing.pytestArgs": ["core"],
+  "python.testing.unittestEnabled": false,
+  "python.testing.pytestEnabled": true
+}
+```
+
+3. Para executar os testes pré configurados pela aplicação utilize o gerenciamento padrão.
+```
+python manage.py test
+```
+
 
 ## APIs EXTERNAS UTILIZADAS
 
