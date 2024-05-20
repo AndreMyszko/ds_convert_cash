@@ -4,7 +4,7 @@ Bem vindo à documentação do Currency Exchange. Sistema *fictício* de convers
 ## REQUISITOS
 - Git instalado e atualizado
 - Docker instalado e atualizado
-- Possuir Python3.12.X instalado 
+- Possuir Python3.12.3 instalado e atualizado 
 - Preferencialmente Sistema Linux Ubuntu 22.04 ou 24.04
 
 ## INSTALAÇÃO
@@ -17,7 +17,63 @@ Bem vindo à documentação do Currency Exchange. Sistema *fictício* de convers
 4. Configurar a aplicação Django.
 5. Rodar a aplicação.
 
+```
+# clone repository
+git clone https://github.com/AndreMyszko/ds_convert_cash.git
+cd ds_convert_cash
+
+# create a virtual environament named as *venv* and *activate* it 
+python -m venv venv
+. venv/bin/activate
+
+# install required packages
+pip install -q -r requirements.txt
+
+# make the migrations
+python manage.py show migrations
+python manage.py makemigrations
+python manage.py migrate
+
+# create a superuser for /admin login
+python manage.py createsuperuser
+
+# run the application
+python manage.py runserver
+
+# para encerrar a aplicação apenas use o atalho: "*CTRL+C*"
+```
+
 ### Rodando a aplicação com Docker
+```
+# O certo é não utilizar o camando *sudo*, mas sim alterar o *chmod* do Docker em */var/run/docker.sock*.
+
+# build do container
+sudo docker build -t ds_convert_cash .
+
+# run do container
+sudo docker run -d --name ds_convert_cash -p 8000:8000 ds_convert_cash:latest
+
+# OPTIONAL: you also can access the container terminal than create a superuser
+sudo docker exec -it <your-container-id> bash
+python manage.py createsuperuser
+exit
+
+# parar o container
+sudo docker stop ds_convert_cash
+
+# remover o container
+sudo docker rm ds_convert_cash
+```
+
+### checar se a imagem está na lista de containers do docker
+```
+sudo docker ps ds_convert_cash
+```
+O *outpu* deve ser algo como isso:
+```
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS         PORTS      NAMES
+2d4da929ce42   ds_convert_cash:latest   "python manage.py ru…"   11 seconds ago   Up 7 seconds   8000/tcp   ds_convert_cash
+```
 
 ## UTILIZAÇÃO 
 A utilização da API é simples e conta apenas com dois ENDPOINTS: 
