@@ -173,6 +173,23 @@ Caso o camando falhe, certifique-se de que seu ambiente está configurado para t
 }
 ```
 
+## POR QUE ESTAS ABORDAGENS FORAM UTILIZADAS?
+- BANCO DE DADOS
+Banco de dados 'db.sqlite3' por se tratar de um microsserviço sem persistência de dados, esta abordagem é mais do que suficiente para lidar com os dados gerados pelo django para seu gerenciamento para finalidade de uma POK.
+
+- ARQUITETURA
+A separação de responsabilidades entre os serviços e a camada de vizualização a fim de aplicar boas práticas, além de facilitar o crescimento da aplicação. A aplicação faz suas requisições dentro de laços try/excep, desta forma controlando restornos imprevistos, e que os usuário estejam sempre acompanhando os valores atuais provenientes das APIs externas, gerando mensagem de erro como retorn para as requisições que não tiveram exito com no caso de *Too many requests*.
+
+- TESTE
+Testes com cobertura simples das funcionalidades básicas do aplicativo, garantindo valores máximos e mínimos para as moedas. Foram criados ao todo 4 testes, dois para checagem dos serviçoes e dois para checagem das views.
+
+- UTILIZAÇÃO
+A api foi pensada para ser simples, poderiam haver mais tipos de moedas com o mínimo de esforço, mas fiquei mais atento para a estrutura da aplicação em si. Da forma com que ela se encontra é capaz de rodas diretamente apenas utilizando Python3.12.3 ou utilizando o Docker o que é ideal para ambientes clusterizados e sucetíveis a orquestração de infraestrutura.
+
+- PRÓXIMAS ATUALIZAÇÕES POSSÍVEIS
+1. Criação de um arquivo .YAML para automação de processos de *workflow* para o *git* e Gerenciamento de *pull requests* para a branch *main* utilizada para "produção". Isso possibilitaria o controle de versões das imagens docker da aplicação, a forma com que é feito o deploy dela entre outras funcionalidades interessantes.
+2. Estudo de caso para utilização de ferramentas *cloud* como Google Cloud *Source Repository* e *Artifactory Manager* utilizadas para versionamento de código fonte e versionamento de imagens docker respectivamente. Poderia utilizar o Google *Secret Manager* para gerenciamento de chaves e passwords da aplicação em produção que rodaria em um *GKE - Google Kubernetes Engine*, desta forma podendo utilizar boas práticas, como por exemplo fornecer a aplicação em diversas regiões e possibilitar o *load balancing*. Poderiam ser utilizadas *contas de serviço* para gerenciamento automático e seguro da aplicação.
+3. A aplicação está rodando perfeitamente em Ubuntu 24.04.
 
 ## APIs EXTERNAS UTILIZADAS
 
