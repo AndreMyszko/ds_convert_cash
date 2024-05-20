@@ -71,8 +71,8 @@ sudo docker ps ds_convert_cash
 ```
 O *outpu* deve ser algo como isso:
 ```
-CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS         PORTS      NAMES
-2d4da929ce42   ds_convert_cash:latest   "python manage.py ru…"   11 seconds ago   Up 7 seconds   8000/tcp   ds_convert_cash
+CONTAINER ID   IMAGE                    COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+8a7d7beb874d   ds_convert_cash:latest   "python manage.py ru…"   11 minutes ago   Up 11 minutes   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp   ds_convert_cash
 ```
 
 ## UTILIZAÇÃO 
@@ -159,7 +159,11 @@ Vary: Accept
 
 ## UTILIZAÇÃO DE TESTES DA APLICAÇÃO
 1. Compatível com *pytest*.
-2. Certifique-se de que seu ambiente está configurado para testes e que os testes estejam direcionados para o app *core*.
+2. Para executar os testes pré configurados pela aplicação utilize o gerenciamento padrão.
+```
+python manage.py test
+```
+Caso o camando falhe, certifique-se de que seu ambiente está configurado para testes e que os testes estão direcionados para o app *core*.
 ```
 # exemplo de settings.json
 {
@@ -167,11 +171,6 @@ Vary: Accept
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true
 }
-```
-
-3. Para executar os testes pré configurados pela aplicação utilize o gerenciamento padrão.
-```
-python manage.py test
 ```
 
 
@@ -188,4 +187,4 @@ https://api.coingecko.com/api/v3/simple/price
 ```
 
 ## TÉCNOLOGIAS
-pyenv, python, venv, django, restframewrok, requests, api, restful, sqlite, json, docker, pytest.
+pyenv, python, venv, django, restframewrok, requests, api, restful, sqlite, json, docker, pytest, linux, ubuntu, bash, vscode, git, vscode.
