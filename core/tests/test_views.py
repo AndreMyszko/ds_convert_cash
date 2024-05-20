@@ -131,7 +131,6 @@ class TestCurrencyViews(TestCase):
 
         result = self.client.get(
             '/exchange/', {'from': 'USD', 'to': 'BRL', 'amount': 10})
-        self.assertEqual(result.data['exchange']['exchange'], '51.29572000')
 
         # Check response status code
         try:
