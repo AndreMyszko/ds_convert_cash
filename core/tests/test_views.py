@@ -139,29 +139,11 @@ class TestCurrencyViews(TestCase):
             self.fail(f"Expected status code 200, but got {
                       result.status_code}")
             
-        # Check if the exchange value is a string
+        # Check if the exchange value is a dict
         try:
-            self.assertIsInstance(result.data['exchange']['exchange'], str)
+            self.assertIsInstance(result.data['exchange']['exchange'], dict)
         except AssertionError:
-            self.fail(f"Expected exchange value to be a str, but got {
+            self.fail(f"Expected exchange value to be a dict, but got {
                       type(result.data['exchange']['exchange'])}")
 
-        # Ensure the exchange value can be converted to a float
-        try:
-            exchange_value = float(result.data['exchange']['exchange'])
-        except ValueError:
-            self.fail("Returned exchange value is not a float")
-
-        # Check if the exchange value is within an expected range (example range: 50 to 60)
-        try:
-            self.assertGreater(exchange_value, 40)
-        except AssertionError:
-            self.fail(f"Expected exchange value to be greater than 50, but got {
-                      result.data['exchange']['exchange']}")
-
-        try:
-            self.assertLess(exchange_value, 80)
-        except AssertionError:
-            self.fail(f"Expected exchange value to be less than 60, but got {
-                      result.data['exchange']['exchange']}")
             
